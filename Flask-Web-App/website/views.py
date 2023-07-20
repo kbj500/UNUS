@@ -33,16 +33,24 @@ def home():
     if authorization_header:
         headers = {'Authorization': authorization_header['Authorization']}
 
+        access_token = spotify_client._access_token
+
         library_response = requests.get(spotify_client.SPOTIFY_API_URL + '/me', headers=headers)
         print("\nStatus Code \me:",library_response.status_code, "\n")
         library_response = requests.get(spotify_client.SPOTIFY_API_URL + '/me/tracks', headers=headers)
         print("\nStatus Code:",library_response.status_code, "\n")
         if library_response.status_code == 200:
             library_data = library_response.json()
+            print("\n JSON: \n",json.dumps(library_data, indent = 4),"\n")
+            #print("\n JSON: \n",pretty_json,"\n")
             library_items = library_data.get('items', [])
             library_tracks = [item['track'] for item in library_items]
+            library_tracks_ids = [track['id'] for track in library_tracks]
+            print("\ntrack_id:",library_tracks_ids[1:3],"\n")
+            print("\ntype track_id:",type(library_tracks_ids))
+            #print("\nLT:",type(library_tracks),"\n")
             # Process and pass the library tracks to the template
-            return render_template("home.html", user=current_user, library_tracks=library_tracks)
+            return render_template("home.html", user=current_user, library_tracks_ids = library_tracks_ids, access_token=access_token, scope = spotify_client.SCOPE)
 
     return render_template("home.html", user=current_user)
 

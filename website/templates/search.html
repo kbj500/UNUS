@@ -1,0 +1,154 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <h1 align="center">Unus</h1>
+    <ul class="list-group list-group-flush" id="notes">
+      {% for note in user.notes %}
+      <li class="list-group-item">
+        {{ note.data }}
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+    
+    
+    <style>
+      /* Flexbox container for the two search bars */
+      .search-bars-container {
+          display: flex;
+          justify-content: space-between;
+          height: 45px;
+          position: absolute;
+          width: 100%;
+          top: 62px;
+          padding-left: 7vw;
+          padding-right: 7vw;
+      }
+    
+      /* Style for the search bar */
+      .search-bar {
+          display: flex;
+          align-items: center;
+          background-color: #b8f43f;
+          border-radius: 5px;
+          padding: 5px;
+      }
+    
+      .search-bar input[type="text"] {
+          padding: 5px;
+          border: none;
+          outline: none;
+      }
+    
+      .search-bar button[type="submit"] {
+          padding: 5px 10px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+    </style>
+    
+    <!-- <div>
+      <iframe class="iframe-track" allowtransparency="true"
+       src="https://open.spotify.com/embed/track/0W4Kpfp1w2xkY3PrV714B7?"
+       allow="encrypted-media" frameborder="0"></iframe>
+    </div>
+    {% for id in library_tracks_ids %}
+      <div>
+        <iframe class="iframe-track" allowtransparency="true"
+         src="https://open.spotify.com/embed/track/{{id}}" 
+         allow="encrypted-media" frameborder="0"></iframe>
+      </div>
+    {% endfor %} -->
+    <style>
+      /* Style for the container */
+      /*spotify*/
+      .iframe-container {
+          
+          
+          overflow-y: scroll; /* Enable vertical scrolling */
+          width: 50%; /* Set the container width to occupy the available space */
+          height: 1150px; /* Set the container height (adjust as needed) */
+          margin: 0; /* Remove margin */
+          padding: 0; /* Remove padding */
+          font-size: 0; /* Set font size to 0 to remove whitespace between inline elements */
+      }
+      
+            
+    /*Soundcloud*/
+      .iframe-container-second
+      {
+        overflow-y: scroll; /* Enable vertical scrolling */
+        width: 50%; /* Set the container width to occupy the available space */
+        height: 1150px; /* Set the container height (adjust as needed) */
+        margin: 0; /* Remove margin */
+        padding: 0; /* Remove padding */
+        font-size: 0; /* Set font size to 0 to remove whitespace between inline elements */
+    
+      }
+      
+      /* Style for the iframes */
+      /*.iframe-container iframe {
+          width: 100%; /* Set the width of each iframe to fill the container */
+       /*   height: 200px; /* Set the height of each iframe (adjust as needed) */
+       /*   margin: 0 auto; /* Remove margin */
+        /*  padding: 0; /* Remove padding */
+          /*display: inline-block; /* Change iframes to block elements to occupy full width of the container */
+    
+          /*margin-bottom: 10px; /* Add some spacing between iframes */
+          
+    </style>
+    
+    
+    <!-- <form>
+    Spotify below  
+    </form> -->
+    <style>
+      /* Style for the container */
+      .track-container {
+          display: inline-block;
+          margin: 10px;
+      }
+    </style>
+    
+    
+    <body>
+      <div class="iframe-container" style="float:left;">
+        {% for id in library_tracks_ids %}
+          <iframe src="https://open.spotify.com/embed/track/{{id}}" width="97%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        {% endfor %}
+        </div>
+    </body>
+    <!-- <form>
+    Sound cloud below  
+    </form> -->
+    <body>
+      </div class="iframe-container-second"style="float:right;">
+      <iframe display:inline-block; width="50%" height="465" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/1273773706/favorites&amp;{ ADD YOUR PARAMETERS HERE }">
+      </iframe>
+    </body>
+    
+    
+    <body>
+      <div class="search-bars-container">
+          <div class="search-bar">
+              <form action="/search" method="post">
+                  <input type="text" name="q" placeholder="Search Spotify" />
+                  <button type="submit">Search</button>
+              </form>
+          </div>
+    
+          <div class="search-bar">
+              <form action="/search" method="post">
+                  <input type="text" name="q" placeholder="Search Soundcloud" />
+                  <button type="submit">Search</button>
+              </form>
+          </div>
+      </div>
+    </body>
+    {% endblock %}
+    

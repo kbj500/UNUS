@@ -44,5 +44,53 @@ content %}
   </div>
   <br />
   <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="container">
+    <ul>
+      <li>Password must contain atleast one uppercase letter</li>
+      <li>Password must be atleast 10 characters</li>
+      <li>Password must contain atleast one number and special character</li>
+    </ul>
+  </div>
+  <style>
+    .container {
+      padding-top: 50px;
+    }
+  </style>
+  <div class="button-container">
+    <button class="spotify-button">Log into Spotify</button>
+    <button class="soundcloud-button">Log into Soundcloud</button>
+  </div>
+  <style>
+    /* Flexbox container for the buttons */
+    .button-container {
+      display: flex;
+      justify-content: space-between; /* This will place buttons with equal space between them */
+      width: 420px; /* Adjust the container width as needed */
+      margin: 0 auto; /* Center the container horizontally */
+      margin-top: 20px; /* Add some spacing from the previous content */
+    }
+
+    /* Style for the buttons */
+    .spotify-button {
+      background-image: url('custom-button.png'); /* Replace 'custom-button.png' with your image path */
+      background-size: cover; /* Adjust this property to control the image size */
+      width: 200px; /* Set the button width */
+      height: 50px; /* Set the button height */
+      border: none; /* Remove the default button border */
+      color: rgb(9, 144, 76); /* Text color on the button */
+      font-size: 16px; /* Font size for any text on the button */
+      cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
+    }
+    .soundcloud-button {
+      background-image: url('custom-button.png'); /* Replace 'custom-button.png' with your image path */
+      background-size: cover; /* Adjust this property to control the image size */
+      width: 200px; /* Set the button width */
+      height: 50px; /* Set the button height */
+      border: none; /* Remove the default button border */
+      color: rgb(234, 69, 58); /* Text color on the button */
+      font-size: 16px; /* Font size for any text on the button */
+      cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
+    }
+  </style>
 </form>
 {% endblock %}

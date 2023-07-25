@@ -24,6 +24,15 @@ def linker():
         if button_clicked == 'spotify':
             auth_url = spotify_client.get_auth_url()
             return redirect(auth_url)
+        
+        if button_clicked == 'soundcloud':
+            if 'soundcloud_data' in request.form:
+                soundcloud_data = request.form.get('soundcloud_data')
+                flash(soundcloud_data, category='success')
+                # Redirect to the linker page after saving the data
+                return redirect(url_for('auth.linker'))
+
+            return render_template("soundcloud_input.html", user=current_user)
 
     return render_template("linker.html", user=current_user)
 

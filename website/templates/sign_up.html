@@ -1,59 +1,63 @@
 {% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
 content %}
 <form method="POST">
-  <h3 align="center">Sign Up</h3>
-  <div class="form-group">
-    <label for="email">Email Address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="email"
-      name="email"
-      placeholder="Enter email"
-    />
-  </div>
-  <div class="form-group">
-    <label for="firstName">First Name</label>
-    <input
-      type="text"
-      class="form-control"
-      id="firstName"
-      name="firstName"
-      placeholder="Enter first name"
-    />
-  </div>
-  <div class="form-group">
-    <label for="password1">Password</label>
-    <input
-      type="password"
-      class="form-control"
-      id="password1"
-      name="password1"
-      placeholder="Enter password"
-    />
-  </div>
-  <div class="form-group">
-    <label for="password2">Password (Confirm)</label>
-    <input
-      type="password"
-      class="form-control"
-      id="password2"
-      name="password2"
-      placeholder="Confirm password"
-    />
-  </div>
-  <br />
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <div class="container">
-    <ul>
-      <li>Password must be atleast 7 characters</li>
-      <li>Password should contain atleast one number and special character</li>
-    </ul>
-  </div>
   <style>
+    .bordered-element {
+      border: 3px solid #ccc;
+      border-radius: 2px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    .bordered-header {
+      border-color: #fbff003e;
+    }
+
+    .bordered-label {
+      border-color: #FFC107; 
+    }
+
+    .bordered-button {
+      border-color: #28A745; 
+    }
+
     .container {
       padding-top: 50px;
     }
   </style>
+
+  <h3 align="center" class="bordered-element bordered-header">Sign Up</h3>
+
+  <div class="form-group bordered-element">
+    <label for="email" class="bordered-label">Email Address</label>
+    <input type="email" class="form-control bordered-element" id="email" name="email" placeholder="Enter email" />
+  </div>
+
+  <div class="form-group bordered-element">
+    <label for="firstName" class="bordered-label">First Name</label>
+    <input type="text" class="form-control bordered-element" id="firstName" name="firstName" placeholder="Enter first name" />
+  </div>
+
+  <div class="form-group bordered-element">
+    <label for="password1" class="bordered-label">Password</label>
+    <input type="password" class="form-control bordered-element" id="password1" name="password1" placeholder="Enter password" />
+  </div>
+
+  <div class="form-group bordered-element">
+    <label for="password2" class="bordered-label">Password (Confirm)</label>
+    <input type="password" class="form-control bordered-element" id="password2" name="password2" placeholder="Confirm password" />
+  </div>
+
+  <br />
+
+  <button type="submit" class="btn btn-primary bordered-element bordered-button">Submit</button>
+
+  <div class="container bordered-element">
+    <ul>
+      <li>Password must be at least 7 characters</li>
+      <li>Password should contain at least one number and special character</li>
+    </ul>
+  </div>
+
 </form>
 {% endblock %}

@@ -1,11 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Link Soundcloud Account</h1>
-  <form method="post">
-    <div class="form-group">
-      <label for="soundcloud_data">Enter Soundcloud User id:</label>
-      <textarea class="form-control" id="soundcloud_data" name="soundcloud_data" rows="1" required></textarea>
-    </div>
-    <button type="submit" name="button_clicked" value="soundcloud" class="btn btn-primary">Submit</button>
-  </form>
+<style>
+  .bordered-element {
+    border: 3px solid #ccc;
+    border-radius: 2px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  .bordered-header {
+    border-color: #ffccc4;
+  }
+
+  .bordered-label {
+    border-color: #FFC107;
+  }
+
+  .bordered-button {
+    border-color: #28A745; 
+  }
+</style>
+
+<h1 class="bordered-element bordered-header">Link Soundcloud Account</h1>
+
+<form method="post" class="bordered-element">
+  <div class="form-group bordered-element">
+    <label for="soundcloud_data" class="bordered-label">Enter Soundcloud User id:</label>
+    <textarea class="form-control bordered-element" id="soundcloud_data" name="soundcloud_data" rows="1" required></textarea>
+  </div>
+  <button type="submit" name="button_clicked" value="soundcloud" class="btn btn-primary bordered-element bordered-button">Submit</button>
+</form>
 {% endblock %}

@@ -28,8 +28,9 @@ def linker():
         if button_clicked == 'soundcloud':
             if 'soundcloud_data' in request.form:
                 soundcloud_data = request.form.get('soundcloud_data')
-                #flash(soundcloud_data, category='success')
-                # put in database
+                current_user.sound_c = soundcloud_data
+                db.session.commit()
+                #flash(current_user.sound_c, category='success')
                 return redirect(url_for('views.home'))
 
             return render_template("soundcloud_input.html", user=current_user)
@@ -50,8 +51,8 @@ def login():
                 login_user(user, remember=True)
                 return redirect(url_for('auth.linker'))
                 ##return redirect(url_for('views.home'))
-                auth_url = spotify_client.get_auth_url()
-                return redirect(auth_url)
+                #auth_url = spotify_client.get_auth_url()
+                #return redirect(auth_url)
             else:
                 flash('Incorrect password, try again.', category='error')
         else:
@@ -102,8 +103,7 @@ def sign_up():
         elif len(password1) < 7:
             flash('Password must be at least 7 characters.', category='error')
         else:
-            new_user = User(email=email, first_name=first_name, password=generate_password_hash(
-                password1, method='sha256'))
+            new_user = User(email=email, first_name=first_name, sound_c=None, password=generate_password_hash(password1, method='sha256')) 
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)

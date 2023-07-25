@@ -28,9 +28,9 @@ def linker():
         if button_clicked == 'soundcloud':
             if 'soundcloud_data' in request.form:
                 soundcloud_data = request.form.get('soundcloud_data')
-                flash(soundcloud_data, category='success')
-                # Redirect to the linker page after saving the data
-                return redirect(url_for('auth.linker'))
+                #flash(soundcloud_data, category='success')
+                # put in database
+                return redirect(url_for('views.home'))
 
             return render_template("soundcloud_input.html", user=current_user)
 

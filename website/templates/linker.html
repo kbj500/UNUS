@@ -1,42 +1,43 @@
 {% extends "base.html" %} {% block title %}Linker{% endblock %} {% block content
 %}
 <form method="POST">
-    <style>
-        .container {
-          padding-top: 50px;
-        }
-      </style>
-      <div class="button-container">
-        <button class="spotify-button">Log into Spotify</button>
-        <button class="soundcloud-button">Log into Soundcloud</button>
-      </div>
-      <style>
-        .button-container {
-          display: flex;
-          justify-content: space-between;
-          width: 420px; 
-          margin: 0 auto; 
-          margin-top: 20px; 
-        }
-    
-        .spotify-button {
-          background-size: cover; 
-          width: 200px; 
-          height: 50px;
-          border: none; 
-          color: rgb(9, 144, 76);
-          font-size: 16px; 
-          cursor: pointer; 
-        }
-        .soundcloud-button { 
-          background-size: cover; 
-          width: 200px; 
-          height: 50px; 
-          border: none; 
-          color: rgb(234, 69, 58); 
-          font-size: 16px; 
-          cursor: pointer; 
-        }
-      </style>
+  <style>
+    .container {
+      padding-top: 50px;
+    }
+  </style>
+  <div class="button-container">
+    <button type="submit" class="spotify-button" name="button_clicked" value="spotify">Log into Spotify</button>
+    <button type="submit" class="soundcloud-button" name="button_clicked" value="soundcloud">Log into Soundcloud</button>
+  </div>
+  <style>
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      width: 420px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+  
+    .spotify-button {
+      background-size: cover;
+      width: 200px;
+      height: 50px;
+      border: none;
+      color: rgb(9, 144, 76);
+      font-size: 16px;
+      cursor: pointer;
+    }
+  
+    .soundcloud-button {
+      background-size: cover;
+      width: 200px;
+      height: 50px;
+      border: none;
+      color: rgb(234, 69, 58);
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </form>
 {% endblock %}

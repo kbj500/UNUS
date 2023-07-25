@@ -15,6 +15,18 @@ spotify_client = SpotifyClient(client_id, client_secret, port=5000)
 
 auth = Blueprint('auth', __name__)
 
+@auth.route('/linker', methods=['GET', 'POST'])
+@login_required
+def linker():
+    if request.method == 'POST':
+        button_clicked = request.form.get('button_clicked')
+
+        if button_clicked == 'spotify':
+            auth_url = spotify_client.get_auth_url()
+            return redirect(auth_url)
+
+    return render_template("linker.html", user=current_user)
+
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -27,6 +39,7 @@ def login():
             if check_password_hash(user.password, password):
                 flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
+                return redirect(url_for('auth.linker'))
                 ##return redirect(url_for('views.home'))
                 auth_url = spotify_client.get_auth_url()
                 return redirect(auth_url)

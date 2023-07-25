@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+<form method="POST">
+  <style>
+    .bordered-element {
+      border: 3px solid #ccc;
+      border-radius: 2px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    .bordered-header {
+      border-color: #0000003e;
+    }
+
+    .bordered-label {
+      border-color: #ff077274; 
+    }
+
+    .bordered-button {
+      border-color: #28a7467c;
+    }
+    .container {
+      padding-top: 50px;
+    }
+  </style>
+  
+  <h3 align="center" class="bordered-element bordered-header">UNUS Login</h3>
+
+  <div class="form-group bordered-element">
+    <label for="email" class="bordered-label">Email Address</label>
+    <input type="email" class="form-control bordered-element" id="email" name="email" placeholder="Enter email" />
+  </div>
+
+  <div class="form-group bordered-element">
+    <label for="password" class="bordered-label">Password</label>
+    <input type="password" class="form-control bordered-element" id="password" name="password" placeholder="Enter password" />
+  </div>
+
+  <br />
+
+  <button type="submit" class="btn btn-primary bordered-element bordered-button">Login</button>
+
+  <div class="container bordered-element">
+    <footer>
+      <p>Have all your music in one place</p>
+    </footer>
+  </div>
+</form>
+{% endblock %}

@@ -82,7 +82,7 @@ class TestApp(unittest.TestCase):
         
         # Check if the sign-up was successful or not
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'First name must be greater than 0 characters.', response.data)
+        self.assertIn(b'First name must be greater than 1 characters.', response.data)
     
     def test_sign_up5(self):
         # Register a new user

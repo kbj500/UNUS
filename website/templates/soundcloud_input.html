@@ -9,7 +9,9 @@
   }
 
   .bordered-header {
-    border-color: #ffccc4;
+    border-color: #ffccc445;
+    display: inline-block;
+    padding: 5px 10px;
   }
 
   .bordered-label {
@@ -21,11 +23,11 @@
   }
 </style>
 
-<h1 class="bordered-element bordered-header">Link Soundcloud Account</h1>
+<h1 class="bordered-element bordered-header">Link your SoundCloud account:</h1>
 
 <form method="post" class="bordered-element">
   <div class="form-group bordered-element">
-    <label for="soundcloud_data" class="bordered-label">Enter Soundcloud User id:</label>
+    <label for="soundcloud_data" class="bordered-label">Enter SoundCloud User Id:</label>
     <textarea class="form-control bordered-element" id="soundcloud_data" name="soundcloud_data" rows="1" required></textarea>
   </div>
   <button type="submit" name="button_clicked" value="soundcloud" class="btn btn-primary bordered-element bordered-button">Submit</button>
